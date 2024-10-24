@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "nombreSuperheroe": "Invencible",
+    "nombreReal": "Mark Grayson",
+    "nombreSociedad": "Guardians of the Globe",
+    "edad": 18,
+    "planetaOrigen": "Tierra",
+    "debilidad": "Emociones humanas",
+    "poder": [
+      "Vuelo",
+      "Super fuerza",
+      "Regeneración",
+      "Velocidad"
+    ],
+    "habilidadEspecial": "Resistencia sobrehumana",
+    "aliado": [
+      "Atom Eve"
+    ],
+    "enemigo": [
+      "The Flaxans"
+    ]
+  },
+  {
+    "id": 2,
+    "nombreSuperheroe": "Omni-Man",
+    "nombreReal": "Nolan Grayson",
+    "nombreSociedad": "Viltrumite Empire",
+    "edad": 1000,
+    "planetaOrigen": "Viltrum",
+    "debilidad": "Resistencia limitada",
+    "poder": [
+      "Vuelo",
+      "Super fuerza",
+      "Resistencia sobrehumana",
+      "Longevidad"
+    ],
+    "habilidadEspecial": "Poder inmenso de destrucción",
+    "aliado": [
+      "Viltrumites"
+    ],
+    "enemigo": [
+      "Guardians of the Globe"
+    ]
+  },
+  {
+    "id": 3,
+    "nombreSuperheroe": "Atom Eve",
+    "nombreReal": "Samantha Eve Wilkins",
+    "nombreSociedad": "Guardians of the Globe",
+    "edad": 18,
+    "planetaOrigen": "Tierra",
+    "debilidad": "Falta de confianza",
+    "poder": [
+      "Manipulación atómica",
+      "Vuelo",
+      "Creación de objetos"
+    ],
+    "habilidadEspecial": "Reestructuración de la materia",
+    "aliado": [
+      "Invencible"
+    ],
+    "enemigo": [
+      "Dinosaurus"
+    ]
+  },
+  {
+    "id": 4,
+    "nombreSuperheroe": "Rex Splode",
+    "nombreReal": "Rex Sloan",
+    "nombreSociedad": "Guardians of the Globe",
+    "edad": 29,
+    "planetaOrigen": "Tierra",
+    "debilidad": "Autoexigencia extrema",
+    "poder": [
+      "Explosión de energía",
+      "Habilidad con armas"
+    ],
+    "habilidadEspecial": "Carga explosiva",
+    "aliado": [
+      "Atom Eve"
+    ],
+    "enemigo": [
+      "Machine Head"
+    ]
+  },
+  {
+    "id": 5,
+    "nombreSuperheroe": "Monster Girl",
+    "nombreReal": "Amanda",
+    "nombreSociedad": "Guardians of the Globe",
+    "edad": 24,
+    "planetaOrigen": "Tierra",
+    "debilidad": "Se convierte en una niña cada vez que usa su poder",
+    "poder": [
+      "Transformación en monstruo",
+      "Super fuerza",
+      "Resistencia aumentada"
+    ],
+    "habilidadEspecial": "Transformación monstruosa",
+    "aliado": [
+      "Rex Splode"
+    ],
+    "enemigo": [
+      "The Lizard League"
+    ]
+  }
+]
