@@ -1,13 +1,12 @@
+// Importa mongoose para conectar y manejar la base de datos
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://Grupo-18:grupo18@cursadanodejs.ls9ii.mongodb.net/Node-js', {
+// Conexión a MongoDB
+mongoose.connect('mongodb+srv://Grupo-18:grupo18@cursadanodejs.ls9ii.mongodb.net/Node-js', {})
+  .then(() => console.log('Conexión exitosa a MongoDB'))
+  .catch(error => console.error('Error al conectar a MongoDB:', error));
 
-
-})
-.then(() => console.log('Conexión exitosa a MongoDB'))
-.catch(error => console.error('Error al conectar a MongoDB:', error));
-
-// //esquema
+// Definición del esquema para los superhéroes
 const superheroSchema = new mongoose.Schema({
   nombreSuperHeroe: { type: String, required: true },
   nombreReal: { type: String, required: true },
@@ -19,74 +18,62 @@ const superheroSchema = new mongoose.Schema({
   enemigos: [String],
   createdAt: { type: Date, default: Date.now }
 }, { collection: 'Grupo-18' }); // Aquí defines la colección de cada grupo
-  
-  const SuperHero = mongoose.model('SuperHero', superheroSchema);
 
+// Definición del modelo SuperHero basado en el esquema superheroSchema
+const SuperHero = mongoose.model('SuperHero', superheroSchema);
 
-
-  //funciones 
+// Función para insertar un nuevo superhéroe en la base de datos
 async function insertSuperHero() {
-    const hero = new SuperHero({
-      nombreSuperHeroe: 'Spiderman',
-      nombreReal: 'Peter Parker',
-      edad: 25,
-      planetaOrigen: 'Tierra',
-      debilidad: 'Radioactiva',
-      poderes: ['Trepar paredes', 'Sentido arácnido', 'Super fuerza', 'Agilidad'],
-      aliados: ['Ironman'],
-      enemigos: ['Duende Verde']
-    });
+  // Crea una nueva instancia del modelo SuperHero con la información de Superman
+  const hero = new SuperHero({
+    nombreSuperHeroe: 'Superman',
+    nombreReal: 'Clark Kent',
+    edad: 35,
+    planetaOrigen: 'Krypton',
+    debilidad: 'Kryptonita',
+    poderes: ['Super fuerza', 'Vuelo', 'Visión láser', 'Invulnerabilidad', 'Súper velocidad'],
+    aliados: ['Batman', 'Wonder Woman'],
+    enemigos: ['Lex Luthor', 'Doomsday']
+  });
+
   
-    await hero.save();
-    console.log('Superhéroe insertado:', hero);
-  }
-  
-  insertSuperHero();
 
 
+  // Guarda el superhéroe en la base de datos
+  await hero.save();
+  // Imprime un mensaje de confirmación con los detalles del superhéroe insertado
+  console.log('Superhéroe insertado:', hero);
+}
+
+insertSuperHero();
 
 
-  async function insertSuperHero() {
-    const hero = new SuperHero({
-      nombreSuperHeroe: 'Spiderman',
-      nombreReal: 'Peter Parker',
-      edad: 25,
-      planetaOrigen: 'Tierra',
-      debilidad: 'Radioactiva',
-      poderes: ['Trepar paredes', 'Sentido arácnido', 'Super fuerza', 'Agilidad'],
-      aliados: ['Ironman'],
-      enemigos: ['Duende Verde']
-    });
-  
-    await hero.save();
-    console.log('Superhéroe insertado:', hero);
-  }
-  
-  insertSuperHero();
+// Función para actualizar la edad de un superhéroe específico
+async function updateSuperHero(nombreSuperHeroe) {
+  // Busca un superhéroe por el nombre y actualiza la edad a 26
+  const result = await SuperHero.updateOne(
+    { nombreSuperHeroe: nombreSuperHeroe },
+    { $set: { edad: 26 } }
+  );
+  // Imprime el resultado de la actualización
+  console.log('Resultado de la actualización:', result);
+}
 
+// Función para eliminar un superhéroe de la base de datos
+async function deleteSuperHero(nombreSuperHeroe) {
+  // Busca un superhéroe por el nombre y lo elimina de la base de datos
+  const result = await SuperHero.deleteOne({ nombreSuperHeroe: nombreSuperHeroe });
+  // Imprime un mensaje de confirmación con los detalles del superhéroe eliminado
+  console.log('Superhéroe eliminado:', result);
+}
 
-  async function updateSuperHero(nombreSuperHeroe) {
-    const result = await SuperHero.updateOne(
-      { nombreSuperHeroe: nombreSuperHeroe },
-      { $set: { edad: 26 } }
-    );
-    console.log('Resultado de la actualización:', result);
-  }
-  
-  updateSuperHero('Spiderman');
+// Función para encontrar superhéroes cuyo planeta de origen sea "Tierra"
+async function findSuperHeroes() {
+  // Busca todos los superhéroes cuyo planeta de origen sea "Tierra"
+  const heroes = await SuperHero.find({ planetaOrigen: 'Tierra' });
+  // Imprime la lista de superhéroes encontrados
+  console.log('Superhéroes encontrados:', heroes);
+}
 
-
-  async function deleteSuperHero(nombreSuperHeroe) {
-    const result = await SuperHero.deleteOne({ nombreSuperHeroe: nombreSuperHeroe });
-    console.log('Superhéroe eliminado:', result);
-  }
-  
-  deleteSuperHero('Spiderman');
-
-
-  async function findSuperHeroes() {
-    const heroes = await SuperHero.find({ planetaOrigen: 'Tierra' });
-    console.log('Superhéroes encontrados:', heroes);
-  }
-  
-  findSuperHeroes();
+// Llama a la función para buscar superhéroes cuyo planeta de origen sea "Tierra"
+findSuperHeroes();
